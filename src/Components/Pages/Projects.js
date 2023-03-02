@@ -46,7 +46,7 @@ function Projects(){
                 {projects.length > 0 && 
                 projects.map((project)=>(
                     <ProjectCard id={project.id}
-                     name={project.name}
+                       name={project.name}
                      budget={project.budget}
                      category={project?.category?.name}
                      key={project.id}/>
