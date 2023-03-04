@@ -1,30 +1,26 @@
 {
   "Project": [
     {
-      "name": "teste1",
-      "budget": "200000",
+      "name": "teste atualizado11",
+      "budget": "77777775",
       "category": {
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "teste2",
-      "budget": "15000",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": [],
+      "cost": 199,
+      "services": [
+        {
+          "name": "ola",
+          "cost": "44",
+          "description": "oook",
+          "id": "5b06d134-f588-4d1f-856d-b56c46c00d30"
+        }
+      ],
       "id": 2
     },
     {
-      "name": "teste3",
-      "budget": "50000",
+      "name": "teste8 atualok",
+      "budget": "85555777",
       "category": {
         "id": "1",
         "name": "Infra"
@@ -32,28 +28,6 @@
       "cost": 0,
       "services": [],
       "id": 3
-    },
-    {
-      "name": "ooooo",
-      "budget": "5",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "name": "teste3",
-      "budget": "50000",
-      "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 5
     }
   ],
   "categories": [

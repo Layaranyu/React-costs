@@ -49,7 +49,8 @@ function ProjectForm({handleSubmit, btnText, projectData}){
             name='name'
             placeholder='Insira o nome do projeto'
             handleOnChange={handleChange}
-            value={project.name ? project.name : ''} />
+            value={project.name ? project.name : '' }
+            required />
             <Input 
             type='number'
             text='Orçamento do projeto'

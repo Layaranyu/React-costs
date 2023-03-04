@@ -5,11 +5,13 @@ import Container from "../Layout/Container"
 import LinkButton from "../Layout/LinkButton"
 import { useState,useEffect } from "react"
 import ProjectCard from "../Project/ProjectCard"
-
+import Loading from "../Layout/Loading"
 
 
 function Projects(){
     const [projects,setProjects]=useState([])
+    const [removeLoading,setRemoveLoading] =useState(false)
+    const [projectMessage,setProjectMessage]= useState('')
 
     const location=useLocation()
     let message=''
@@ -28,11 +30,25 @@ function Projects(){
             .then((data)=>{
                 console.log(data)
                 setProjects(data)
+                setRemoveLoading(true)
             })
             .catch((err)=> console.log(err))
         },[])
 
 
+        function removeProject(id){
+        fetch(`http://localhost:5000/Project/${id}`,{
+            method:'DELETE',
+            Headers:{
+                'Content-Type': 'application/json'
+            },
+        }).then((resp)=> resp.json())
+        .then(()=>{
+            setProjects(projects.filter((project) => project.id !== id ));
+            setProjectMessage('Projeto removido com sucesso')
+        })
+        .catch((err)=> console.log(err))
+    }
 
 
     return (
@@ -42,6 +58,7 @@ function Projects(){
             <LinkButton to='/newproject' text='Criar Projeto' />
             </div>
             {message && <Message type="success" msg={message}/>}
+            {projectMessage && <Message type="success" msg={projectMessage}/>}
             <Container customClass="start">
                 {projects.length > 0 && 
                 projects.map((project)=>(
@@ -49,8 +66,14 @@ function Projects(){
                        name={project.name}
                      budget={project.budget}
                      category={project?.category?.name}
-                     key={project.id}/>
+                     key={project.id}
+                     handleRemove={removeProject}/>
                 ))}
+                {!removeLoading && <Loading/>}
+                {removeLoading && projects.length === 0 &&(
+                    <p>Não há projetos cadastrados</p>
+                )
+                }
             </Container>
         </div>
     )
